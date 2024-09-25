@@ -1,0 +1,10 @@
+{
+  "Title": "You Can Do It!",
+  "Type": "library",
+  "Org": "badandbest",
+  "Ident": "youcandoit",
+  "Schema": 1,
+  "Metadata": {
+    "CsProjName": "You Can Do It"
+  }
+}
