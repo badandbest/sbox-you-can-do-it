@@ -1,30 +1,55 @@
 using Sandbox;
+using System;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+using static Sandbox.ResourceLibrary;
 namespace Editor;
 
 public class MotivationNotice : NoticeWidget
 {
+	[ModuleInitializer]
+	public static async void Start()
+	{
+		while ( Sandbox.Application.IsEditor )
+		{
+			const int MIN_MINUTES = 15;
+			const int MAX_MINUTES = 30;
+
+			var minutes = Game.Random.Next( MIN_MINUTES, MAX_MINUTES );
+			await Task.Delay( TimeSpan.FromMinutes( minutes ) );
+			
+			_ = new MotivationNotice();
+		}
+	}
+
+	public string Portrait { get; init; }
+	public string Message { get; init; }
+
+	public string Bubble => FileSystem.Mounted.GetFullPath( "portraits/bubble.png" );
+
+	protected override Vector2 SizeHint() => new( 512, 384 );
+
 	public MotivationNotice()
 	{
-		FixedSize = new Vector2( 512, 384 );
+		var personality = Game.Random.FromArray( GetAll<MotivationResource>().ToArray() );
+
+		Portrait = personality.GetPortrait();
+		Message = personality.GetMessage();
 	}
 
 	protected override void OnPaint()
 	{
-		var imageTexture = Texture.Load( "images/citizens/chill/terry.png" );
-		var bubbleTexture = Texture.Load( "images/speechbubble.vtex" );
+		Paint.SetPen( Theme.Black );
+		Paint.SetDefaultFont( 16 );
 		
-		var image = Pixmap.FromTexture( imageTexture );
-		var bubble = Pixmap.FromTexture( bubbleTexture );
+		var rect = LocalRect.Align( 350, TextFlag.LeftBottom );
+		Paint.Draw( rect, Portrait );
+		
+		rect = LocalRect.Align( 250, TextFlag.RightTop );
+		Paint.Draw( rect, Bubble );
 
-		var imageRect = new Rect( 0, 32,350,350 );
-		var bubbleRect = new Rect( 256, 0, 256, 256 );
-		var speechRect = bubbleRect.Shrink( 8,8,8,96 );
-		
-		Paint.Draw( imageRect, image );
-		Paint.Draw( bubbleRect, bubble );
-		
-		Paint.SetPen( Theme.Black, 1 );
-		Paint.SetFont( "Poppins", 16, 450 );
-		Paint.DrawText( speechRect, "that's amazing!\n(∗•ω•∗)" );
+		rect = rect.Shrink( 0, 0, 0, 55 );
+		Paint.DrawText( rect, Message );
 	}
 }

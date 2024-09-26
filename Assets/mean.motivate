@@ -1,0 +1,27 @@
+{
+  "Portraits": [
+    "portraits/arms_crossed.png"
+  ],
+  "Messages": [
+    "Hmph!",
+    "Baka!",
+    "Do better!",
+    "\u003E:C",
+    "*pout*",
+    "Idiot!",
+    "Stupid head!",
+    "It\u0027s not like\nI\u0027m proud of you\nor anything!",
+    "It\u0027s not like\nI care about your\nwork or anything!",
+    "Finish it already!",
+    "Geez, stop pushing\nyourself!",
+    "Could you be any\nmore clueless?",
+    "It doesn\u0027t work!",
+    "Finish it faster!",
+    "Blehh!",
+    "You suck! (\u25D4_\u25D4)",
+    "Useless!"
+  ],
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
+}

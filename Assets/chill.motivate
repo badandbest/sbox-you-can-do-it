@@ -1,0 +1,20 @@
+{
+  "Portraits": [
+    "portraits/physgun.png",
+    "portraits/suspicious.png"
+  ],
+  "Messages": [
+    "very good.",
+    "congratulations.",
+    "keep it up!",
+    "that\u0027s smart.",
+    "I like your thinking.",
+    "that\u0027s a good idea.",
+    "neat.",
+    "interesting..",
+    "very clever."
+  ],
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
+}

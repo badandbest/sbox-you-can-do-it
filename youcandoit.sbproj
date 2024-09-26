@@ -4,7 +4,22 @@
   "Org": "badandbest",
   "Ident": "youcandoit",
   "Schema": 1,
+  "IncludeSourceFiles": true,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "IsWhitelistDisabled": false,
   "Metadata": {
-    "CsProjName": "You Can Do It"
+    "CsProjName": "You Can Do It",
+    "Compiler": {
+      "RootNamespace": "Sandbox",
+      "DefineConstants": "SANDBOX;ADDON;DEBUG",
+      "NoWarn": "1701;1702;1591;2255;",
+      "WarningsAsErrors": "",
+      "Whitelist": true,
+      "AssemblyReferences": [],
+      "IgnoreFolders": [],
+      "DistinctAssemblyReferences": []
+    }
   }
 }
