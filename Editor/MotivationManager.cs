@@ -20,7 +20,8 @@ public static class MotivationManager
 			return;
 		}
 
-		_ = new MotivationNotice();
+		var notice = new MotivationNotice();
+		NoticeManager.Remove( notice, 30 );
 
 		const int MIN_MINUTES = 15;
 		const int MAX_MINUTES = 30;
