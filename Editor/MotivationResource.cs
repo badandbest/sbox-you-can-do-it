@@ -6,7 +6,7 @@ public class MotivationResource : GameResource
 {
 	[ImageAssetPath]
 	public string[] Portraits { get; set; }
-	
+
 	public string[] Messages { get; set; }
 
 	/// <summary>
@@ -17,9 +17,9 @@ public class MotivationResource : GameResource
 	{
 		var portraitPath = Game.Random.FromArray( Portraits );
 
-		return FileSystem.Mounted.GetFullPath( portraitPath );;
+		return FileSystem.Mounted.GetFullPath( portraitPath );
 	}
-	
+
 	/// <summary>
 	/// Selects a random motivational response from this type.
 	/// </summary>
